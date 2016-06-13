@@ -10,7 +10,7 @@ voting-app:
   log_driver: ''
   tty: true
   log_opt: {}
-  image: localhost/voting-app
+  image: brutus333/voting-app
   links:
   - 'voting-app:'
   stdin_open: true
@@ -28,7 +28,7 @@ result-app:
   log_driver: ''
   tty: true
   log_opt: {}
-  image: localhost/result-app
+  image: brutus333/result-app
   links:
   - Postrges:db
   stdin_open: true
@@ -36,7 +36,7 @@ worker:
   log_driver: ''
   tty: true
   log_opt: {}
-  image: localhost/worker
+  image: brutus333/voting-worker
   links:
   - redis:redis
   - Postrges:db
