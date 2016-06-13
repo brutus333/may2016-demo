@@ -16,5 +16,5 @@ result-app:
   scale: 1
 worker:
   scale: 1
-Postrges:
+Postgres:
   scale: 1

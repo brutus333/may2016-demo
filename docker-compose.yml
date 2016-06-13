@@ -11,6 +11,9 @@ voting-app:
   tty: true
   log_opt: {}
   image: brutus333/voting-app
+  environment:
+    OPTION_A: cat
+    OPTION_B: dog
   links:
   - 'voting-app:'
   stdin_open: true
@@ -23,14 +26,14 @@ External-LB:
   - voting-app:voting-app
   stdin_open: true
 result-app:
-  ports:
-  - 5001:80/tcp
   log_driver: ''
   tty: true
   log_opt: {}
+  ports:
+  - 5001:80
   image: brutus333/result-app
   links:
-  - Postrges:db
+  - Postgres:db
   stdin_open: true
 worker:
   log_driver: ''
@@ -39,9 +42,9 @@ worker:
   image: brutus333/voting-worker
   links:
   - redis:redis
-  - Postrges:db
+  - Postgres:db
   stdin_open: true
-Postrges:
+Postgres:
   log_driver: ''
   labels:
     io.rancher.container.pull_image: always
