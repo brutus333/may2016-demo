@@ -1,9 +1,9 @@
 Example Voting App
 ==================
 
-This is an example Docker app with multiple services. It is run with Docker Compose and uses Docker Networking to connect containers together. You will need Docker Compose 1.6 or later.
+This is an example Docker app with multiple services. 
 
-More info at https://blog.docker.com/2015/11/docker-toolbox-compose/
+It is run with Rancher compose.
 
 Architecture
 -----
@@ -19,15 +19,15 @@ Running
 
 Run in this directory:
 
-    $ docker-compose up
+    $ rancher-compose up
 
-The app will be running on port 5000 on your Docker host, and the results will be on port 5001.
+The voting app will be running behind a load balancer started on port 5000 while the result app will be running on host port 5001.
 
 Docker Hub images
 -----------------
 
 Docker Hub images for services in this app are built automatically from master:
 
- - [docker/example-voting-app-voting-app](https://hub.docker.com/r/docker/example-voting-app-voting-app/)
- - [docker/example-voting-app-result-app](https://hub.docker.com/r/docker/example-voting-app-result-app/)
- - [docker/example-voting-app-worker](https://hub.docker.com/r/docker/example-voting-app-worker/)
+ - [brutus333/voting-app](https://hub.docker.com/r/brutus333/voting-app/)
+ - [brutus333/result-app](https://hub.docker.com/r/brutus333/result-app/)
+ - [brutus333/voting-worker](https://hub.docker.com/r/brutus333/voting-worker/)
