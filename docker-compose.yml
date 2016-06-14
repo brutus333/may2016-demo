@@ -12,11 +12,13 @@ voting-app:
   log_opt: {}
   image: brutus333/voting-app
   environment:
-    OPTION_A: cat
-    OPTION_B: dog
+    OPTION_A: blue
+    OPTION_B: green
   links:
   - 'voting-app:'
   stdin_open: true
+  labels:
+    io.rancher.container.hostname_override: container_name
 External-LB:
   ports:
   - 5000:80
@@ -35,6 +37,8 @@ result-app:
   links:
   - Postgres:db
   stdin_open: true
+  labels:
+    io.rancher.container.hostname_override: container_name
 worker:
   log_driver: ''
   tty: true
